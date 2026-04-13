@@ -119,6 +119,7 @@
             border: 1px solid var(--color-border-light); /* Changed for light theme */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle initial shadow adjusted */
             transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out; /* Smooth transitions */
+            position: relative; /* Added for absolute positioning of sale badge */
         }
 
         /* Product Card Hover Effect */
@@ -143,14 +144,57 @@
             color: var(--color-text-secondary); /* Changed for light theme */
         }
 
-        /* Product Price */
+        /* Product Price Container */
         .price {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.8rem; /* Larger price */
-            font-weight: 600; /* Stronger weight */
-            color: var(--color-amber); /* Remains */
             margin-top: 10px; /* Space before price */
             letter-spacing: -0.02em;
+            display: flex; /* To arrange original and discounted prices */
+            align-items: baseline; /* Align text baselines */
+            gap: 10px; /* Space between prices */
+            flex-wrap: wrap; /* Allow prices to wrap on small screens if needed */
+        }
+
+        /* Styles for single, non-discounted price */
+        .price .current-price {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-amber);
+        }
+
+        /* Styles for original price in a discount scenario */
+        .price .original-price {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.2rem; /* Smaller than new price */
+            color: var(--color-text-secondary); /* Muted color */
+            text-decoration: line-through;
+            font-weight: 400; /* Lighter weight */
+        }
+
+        /* Styles for discounted price */
+        .price .discounted-price {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem; /* Make the new price stand out more */
+            color: var(--color-amber);
+            font-weight: 700; /* Bolder */
+        }
+
+        /* Sale Badge */
+        .sale-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--color-amber);
+            color: var(--color-dark-accent);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 10; /* Ensure it's above other content */
         }
 
         /* Button Styling */
@@ -229,8 +273,25 @@
                 font-size: 1.25rem;
             }
 
+            /* Responsive price adjustments */
             .price {
+                gap: 8px;
+            }
+            .price .current-price {
                 font-size: 1.6rem;
+            }
+            .price .original-price {
+                font-size: 1.1rem;
+            }
+            .price .discounted-price {
+                font-size: 1.8rem;
+            }
+
+            .sale-badge {
+                top: 15px;
+                right: 15px;
+                padding: 5px 10px;
+                font-size: 0.75rem;
             }
 
             button {
@@ -273,8 +334,25 @@
                 font-size: 1.15rem;
             }
 
+            /* Responsive price adjustments */
             .price {
+                gap: 6px;
+            }
+            .price .current-price {
                 font-size: 1.4rem;
+            }
+            .price .original-price {
+                font-size: 1rem;
+            }
+            .price .discounted-price {
+                font-size: 1.6rem;
+            }
+
+            .sale-badge {
+                top: 12px;
+                right: 12px;
+                padding: 4px 8px;
+                font-size: 0.7rem;
             }
 
             button {
@@ -294,44 +372,64 @@
 
         <div class="products">
             <div class="product-card">
+                <span class="sale-badge">Sale</span>
                 <h3>Pro Laser 3000</h3>
                 <p>Unrivaled speed and precision for high-volume monochrome printing. Ideal for professional environments.</p>
-                <p class="price">$299.99</p>
+                <p class="price">
+                    <span class="original-price">$299.99</span>
+                    <span class="discounted-price">$249.99</span>
+                </p>
                 <button>Add to Cart</button>
             </div>
 
             <div class="product-card">
+                <span class="sale-badge">Sale</span>
                 <h3>InkJet Plus Chroma</h3>
                 <p>Vibrant, true-to-life color reproduction. Perfect for photos, graphics, and creative projects.</p>
-                <p class="price">$149.99</p>
+                <p class="price">
+                    <span class="original-price">$149.99</span>
+                    <span class="discounted-price">$119.99</span>
+                </p>
                 <button>Add to Cart</button>
             </div>
 
             <div class="product-card">
+                <span class="sale-badge">Sale</span>
                 <h3>Portable Mobile X</h3>
                 <p>Compact, wireless, and battery-powered. Print on the go, wherever inspiration strikes.</p>
-                <p class="price">$199.99</p>
+                <p class="price">
+                    <span class="original-price">$199.99</span>
+                    <span class="discounted-price">$179.99</span>
+                </p>
                 <button>Add to Cart</button>
             </div>
 
             <div class="product-card">
+                <span class="sale-badge">Sale</span>
                 <h3>All-in-One Office Pro</h3>
                 <p>Print, scan, copy, and fax with seamless integration. The essential hub for any modern office.</p>
-                <p class="price">$399.99</p>
+                <p class="price">
+                    <span class="original-price">$399.99</span>
+                    <span class="discounted-price">$349.99</span>
+                </p>
                 <button>Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <h3>EcoTank Series</h3>
                 <p>Revolutionary ink tank system for ultra-low-cost, high-volume printing without cartridges.</p>
-                <p class="price">$349.99</p>
+                <p class="price">
+                    <span class="current-price">$349.99</span>
+                </p>
                 <button>Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <h3>3D Print Creator</h3>
                 <p>Bring your designs to life with precise 3D printing capabilities for prototypes and models.</p>
-                <p class="price">$899.99</p>
+                <p class="price">
+                    <span class="current-price">$899.99</span>
+                </p>
                 <button>Add to Cart</button>
             </div>
         </div>
