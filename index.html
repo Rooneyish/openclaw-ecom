@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-dark: #0F1626; /* Very dark navy, almost black */
-            --color-bg-medium: #1C2E4A; /* Main background navy */
-            --color-bg-light: #2A4064; /* Card/header background navy */
-            --color-amber: #FFD166; /* Vibrant amber */
-            --color-text-light: #E0E0E0; /* Light grey for general text */
-            --color-text-dim: #A0AEC0; /* Duller text for taglines */
-            --color-button-active: #E6B85E; /* Slightly darker amber for active state */
+            --color-bg-main: #FAF8F5; /* Soft, warm off-white / light beige for body background */
+            --color-bg-card: #FFFFFF; /* Pure white for header and product cards */
+            --color-dark-accent: #222222; /* Very dark grey for text on amber buttons, or other dark accents */
+            --color-amber: #FFD166; /* Vibrant amber - remains */
+            --color-text-primary: #333333; /* Dark grey for general text and headings */
+            --color-text-secondary: #666666; /* Medium grey for taglines and descriptions */
+            --color-button-active: #E6B85E; /* Slightly darker amber for active state - remains */
+            --color-border-light: #E0E0E0; /* Light grey for subtle borders */
         }
 
         /* Universal Box-Sizing */
@@ -28,9 +29,9 @@
         /* Base Body Styles */
         body {
             min-height: 100vh;
-            color: var(--color-text-light);
+            color: var(--color-text-primary); /* Changed for light theme */
             font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--color-bg-medium);
+            background-color: var(--color-bg-main); /* Changed to beige */
             line-height: 1.6;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
@@ -46,13 +47,13 @@
 
         /* Header Styling */
         header {
-            background-color: var(--color-bg-light);
+            background-color: var(--color-bg-card); /* Changed for light theme */
             padding: 40px 30px; /* More generous padding */
             display: grid;
             gap: 12px;
             border-radius: 8px; /* Slightly rounded corners */
             margin-bottom: 40px; /* Space before products */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Adjusted shadow for light theme */
             position: relative;
             overflow: hidden; /* For potential background elements */
         }
@@ -65,7 +66,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.03) 0%, transparent 70%); /* Adjusted for light background */
             opacity: 0.8;
             pointer-events: none;
         }
@@ -76,7 +77,7 @@
             font-size: 0.85rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--color-amber);
+            color: var(--color-amber); /* Remains */
             font-weight: 500;
         }
 
@@ -87,8 +88,8 @@
             text-transform: uppercase;
             letter-spacing: 0.02em;
             font-weight: 700; /* Stronger weight */
-            color: var(--color-text-light);
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle text shadow */
+            color: var(--color-text-primary); /* Changed for light theme */
+            text-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle text shadow adjusted */
         }
 
         /* Tagline Text */
@@ -96,7 +97,7 @@
             max-width: 65ch; /* Slightly wider */
             font-size: 1.1rem; /* Slightly larger */
             font-weight: 400;
-            color: var(--color-text-dim);
+            color: var(--color-text-secondary); /* Changed for light theme */
             margin-top: 8px; /* More space */
         }
 
@@ -109,21 +110,21 @@
 
         /* Product Card Styling */
         .product-card {
-            background-color: var(--color-bg-light);
+            background-color: var(--color-bg-card); /* Changed for light theme */
             padding: 25px; /* More padding */
             display: grid;
             gap: 15px; /* More gap */
             align-content: start;
             border-radius: 8px;
-            border: 1px solid rgba(255, 209, 102, 0.2); /* Subtle amber border */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle initial shadow */
+            border: 1px solid var(--color-border-light); /* Changed for light theme */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle initial shadow adjusted */
             transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out; /* Smooth transitions */
         }
 
         /* Product Card Hover Effect */
         .product-card:hover {
             transform: translateY(-8px); /* Lift higher */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover adjusted */
             border-color: var(--color-amber); /* Amber border on hover */
         }
 
@@ -133,13 +134,13 @@
             line-height: 1.2;
             text-transform: uppercase;
             font-weight: 600;
-            color: var(--color-text-light);
+            color: var(--color-text-primary); /* Changed for light theme */
         }
 
         /* Product Card Description */
         .product-card p {
             font-size: 1rem;
-            color: var(--color-text-dim);
+            color: var(--color-text-secondary); /* Changed for light theme */
         }
 
         /* Product Price */
@@ -147,7 +148,7 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 1.8rem; /* Larger price */
             font-weight: 600; /* Stronger weight */
-            color: var(--color-amber);
+            color: var(--color-amber); /* Remains */
             margin-top: 10px; /* Space before price */
             letter-spacing: -0.02em;
         }
@@ -174,7 +175,7 @@
         /* Button Hover Effect */
         button:hover {
             background-color: var(--color-amber);
-            color: var(--color-bg-dark); /* Text becomes dark navy */
+            color: var(--color-dark-accent); /* Changed for light theme */
             border-color: var(--color-amber);
             transform: translateY(-2px); /* Subtle lift on hover */
         }
@@ -188,7 +189,7 @@
 
         /* Button Focus for Accessibility */
         button:focus-visible {
-            box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.5), 0 0 0 6px rgba(42, 64, 100, 0.8); /* Amber ring with navy backdrop */
+            box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.5), 0 0 0 6px var(--color-text-secondary); /* Amber ring with dark grey backdrop */
         }
 
         /* --- Responsive Design --- */
