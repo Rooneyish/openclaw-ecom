@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrinterHub | Sleek & Modern</title>
+    <title>PrinterHub | Enterprise Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-main: #FAF8F5; /* Soft, warm off-white / light beige for body background */
+            --color-bg-main: #FFFFFF; /* Pure white for body background */
             --color-bg-card: #FFFFFF; /* Pure white for header and product cards */
-            --color-dark-accent: #222222; /* Very dark grey for text on amber buttons, or other dark accents */
-            --color-amber: #FFD166; /* Vibrant amber - remains */
-            --color-text-primary: #333333; /* Dark grey for general text and headings */
-            --color-text-secondary: #666666; /* Medium grey for taglines and descriptions */
-            --color-button-active: #E6B85E; /* Slightly darker amber for active state - remains */
+            --color-text-primary: #1A1A1A; /* Very dark grey for general text and headings */
+            --color-text-secondary: #555555; /* Medium grey for taglines and descriptions */
+            --color-accent: #000000; /* Primary accent for prices, buttons, borders on hover */
             --color-border-light: #E0E0E0; /* Light grey for subtle borders */
+            --color-button-bg: #1A1A1A; /* Solid background for buttons */
+            --color-button-text: #FFFFFF; /* Text color on solid buttons */
+            --color-button-hover-bg: #333333; /* Darker grey for hover */
+            --color-button-active-bg: #000000; /* Pure black for active state */
+            --color-focus-ring: rgba(0, 0, 0, 0.2); /* For focus outline */
+            --color-sale-badge-bg: #1A1A1A; /* Dark background for sale badge */
+            --color-sale-badge-text: #FFFFFF; /* White text for sale badge */
         }
 
         /* Universal Box-Sizing */
@@ -29,9 +34,9 @@
         /* Base Body Styles */
         body {
             min-height: 100vh;
-            color: var(--color-text-primary); /* Changed for light theme */
+            color: var(--color-text-primary);
             font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--color-bg-main); /* Changed to beige */
+            background-color: var(--color-bg-main);
             line-height: 1.6;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
@@ -41,34 +46,27 @@
         /* Main Content Frame */
         .frame {
             max-width: 1100px;
-            margin: 40px auto; /* Increased margin for more breathing room */
-            padding: 0 20px; /* Increased padding */
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         /* Header Styling */
         header {
-            background-color: var(--color-bg-card); /* Changed for light theme */
-            padding: 40px 30px; /* More generous padding */
+            background-color: var(--color-bg-card);
+            padding: 40px 30px;
             display: grid;
             gap: 12px;
-            border-radius: 8px; /* Slightly rounded corners */
-            margin-bottom: 40px; /* Space before products */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Adjusted shadow for light theme */
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Adjusted shadow for crispness */
             position: relative;
-            overflow: hidden; /* For potential background elements */
+            overflow: hidden;
+            border: 1px solid var(--color-border-light); /* Added subtle border */
         }
 
-        /* Header Subtle Background Effect */
+        /* Header Subtle Background Effect - Removed for crispness */
         header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.03) 0%, transparent 70%); /* Adjusted for light background */
-            opacity: 0.8;
-            pointer-events: none;
+            content: none;
         }
 
         /* Eyebrow Text (Small, uppercase accent) */
@@ -77,81 +75,81 @@
             font-size: 0.85rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--color-amber); /* Remains */
+            color: var(--color-text-secondary); /* Muted grey for enterprise feel */
             font-weight: 500;
         }
 
         /* Main Heading */
         h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem); /* Larger and more impactful */
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             line-height: 1.1;
             text-transform: uppercase;
             letter-spacing: 0.02em;
-            font-weight: 700; /* Stronger weight */
-            color: var(--color-text-primary); /* Changed for light theme */
-            text-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle text shadow adjusted */
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-shadow: none; /* Removed subtle text shadow */
         }
 
         /* Tagline Text */
         .tagline {
-            max-width: 65ch; /* Slightly wider */
-            font-size: 1.1rem; /* Slightly larger */
+            max-width: 65ch;
+            font-size: 1.1rem;
             font-weight: 400;
-            color: var(--color-text-secondary); /* Changed for light theme */
-            margin-top: 8px; /* More space */
+            color: var(--color-text-secondary);
+            margin-top: 8px;
         }
 
         /* Products Grid */
         .products {
             display: grid;
-            gap: 25px; /* Increased gap */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Wider cards */
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
         /* Product Card Styling */
         .product-card {
-            background-color: var(--color-bg-card); /* Changed for light theme */
-            padding: 25px; /* More padding */
+            background-color: var(--color-bg-card);
+            padding: 25px;
             display: grid;
-            gap: 15px; /* More gap */
+            gap: 15px;
             align-content: start;
             border-radius: 8px;
-            border: 1px solid var(--color-border-light); /* Changed for light theme */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle initial shadow adjusted */
-            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out; /* Smooth transitions */
-            position: relative; /* Added for absolute positioning of sale badge */
+            border: 1px solid var(--color-border-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Subtle initial shadow */
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+            position: relative;
         }
 
         /* Product Card Hover Effect */
         .product-card:hover {
-            transform: translateY(-8px); /* Lift higher */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover adjusted */
-            border-color: var(--color-amber); /* Amber border on hover */
+            transform: translateY(-5px); /* Slightly less lift for enterprise */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger but still clean shadow on hover */
+            border-color: var(--color-accent); /* Black border on hover */
         }
 
         /* Product Card Heading */
         .product-card h3 {
-            font-size: 1.4rem; /* Larger heading */
+            font-size: 1.4rem;
             line-height: 1.2;
             text-transform: uppercase;
             font-weight: 600;
-            color: var(--color-text-primary); /* Changed for light theme */
+            color: var(--color-text-primary);
         }
 
         /* Product Card Description */
         .product-card p {
             font-size: 1rem;
-            color: var(--color-text-secondary); /* Changed for light theme */
+            color: var(--color-text-secondary);
         }
 
         /* Product Price Container */
         .price {
-            margin-top: 10px; /* Space before price */
+            margin-top: 10px;
             letter-spacing: -0.02em;
-            display: flex; /* To arrange original and discounted prices */
-            align-items: baseline; /* Align text baselines */
-            gap: 10px; /* Space between prices */
-            flex-wrap: wrap; /* Allow prices to wrap on small screens if needed */
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         /* Styles for single, non-discounted price */
@@ -159,24 +157,24 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 1.8rem;
             font-weight: 600;
-            color: var(--color-amber);
+            color: var(--color-accent); /* Black for price */
         }
 
         /* Styles for original price in a discount scenario */
         .price .original-price {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.2rem; /* Smaller than new price */
-            color: var(--color-text-secondary); /* Muted color */
+            font-size: 1.2rem;
+            color: var(--color-text-secondary);
             text-decoration: line-through;
-            font-weight: 400; /* Lighter weight */
+            font-weight: 400;
         }
 
         /* Styles for discounted price */
         .price .discounted-price {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 2rem; /* Make the new price stand out more */
-            color: var(--color-amber);
-            font-weight: 700; /* Bolder */
+            font-size: 2rem;
+            color: var(--color-accent); /* Black for discounted price */
+            font-weight: 700;
         }
 
         /* Sale Badge */
@@ -184,8 +182,8 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: var(--color-amber);
-            color: var(--color-dark-accent);
+            background-color: var(--color-sale-badge-bg); /* Dark background */
+            color: var(--color-sale-badge-text); /* White text */
             padding: 6px 12px;
             border-radius: 4px;
             font-family: 'IBM Plex Mono', monospace;
@@ -194,17 +192,17 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 10; /* Ensure it's above other content */
+            z-index: 10;
         }
 
         /* Button Styling */
         button {
-            margin-top: 15px; /* More space */
+            margin-top: 15px;
             width: 100%;
-            border: 2px solid var(--color-amber);
-            background-color: transparent;
-            color: var(--color-amber);
-            padding: 14px 18px; /* More generous padding */
+            border: 2px solid var(--color-button-bg); /* Dark border */
+            background-color: var(--color-button-bg); /* Solid dark background */
+            color: var(--color-button-text); /* White text */
+            padding: 14px 18px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.95rem;
             text-transform: uppercase;
@@ -213,27 +211,27 @@
             border-radius: 6px;
             transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
             font-weight: 500;
-            outline: none; /* Remove default focus outline */
+            outline: none;
         }
 
         /* Button Hover Effect */
         button:hover {
-            background-color: var(--color-amber);
-            color: var(--color-dark-accent); /* Changed for light theme */
-            border-color: var(--color-amber);
-            transform: translateY(-2px); /* Subtle lift on hover */
+            background-color: var(--color-button-hover-bg); /* Slightly lighter dark grey */
+            color: var(--color-button-text); /* Keep white text */
+            border-color: var(--color-button-hover-bg); /* Match border to background */
+            transform: translateY(-2px);
         }
 
         /* Button Active (Click) Effect */
         button:active {
-            transform: translateY(0); /* Press effect */
-            background-color: var(--color-button-active);
-            border-color: var(--color-button-active);
+            transform: translateY(0);
+            background-color: var(--color-button-active-bg); /* Pure black */
+            border-color: var(--color-button-active-bg);
         }
 
         /* Button Focus for Accessibility */
         button:focus-visible {
-            box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.5), 0 0 0 6px var(--color-text-secondary); /* Amber ring with dark grey backdrop */
+            box-shadow: 0 0 0 3px var(--color-focus-ring), 0 0 0 6px var(--color-text-secondary); /* Dark grey rings */
         }
 
         /* --- Responsive Design --- */
