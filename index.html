@@ -8,20 +8,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* Dark Mode Theme Variables */
         :root {
-            --color-bg-main: #FFFFFF; /* Pure white for body background */
-            --color-bg-card: #FFFFFF; /* Pure white for header and product cards */
-            --color-text-primary: #1A1A1A; /* Very dark grey for general text and headings */
-            --color-text-secondary: #555555; /* Medium grey for taglines and descriptions */
-            --color-accent: #000000; /* Primary accent for prices, buttons, borders on hover */
-            --color-border-light: #E0E0E0; /* Light grey for subtle borders */
-            --color-button-bg: #1A1A1A; /* Solid background for buttons */
-            --color-button-text: #FFFFFF; /* Text color on solid buttons */
-            --color-button-hover-bg: #333333; /* Darker grey for hover */
-            --color-button-active-bg: #000000; /* Pure black for active state */
-            --color-focus-ring: rgba(0, 0, 0, 0.2); /* For focus outline */
-            --color-sale-badge-bg: #1A1A1A; /* Dark background for sale badge */
-            --color-sale-badge-text: #FFFFFF; /* White text for sale badge */
+            --color-bg-main: #1A1A1A; /* Very dark grey for body background */
+            --color-bg-card: #2C2C2C; /* Slightly lighter dark grey for header and product cards */
+            --color-text-primary: #E0E0E0; /* Soft white for general text and headings */
+            --color-text-secondary: #A0A0A0; /* Muted light grey for taglines and descriptions */
+            --color-accent: #61DAFB; /* Vibrant light blue/cyan for prices, buttons, borders on hover */
+            --color-border-light: #3A3A3A; /* Dark grey for subtle borders */
+            --color-button-bg: #444444; /* Dark grey for button background */
+            --color-button-text: #E0E0E0; /* Soft white for button text */
+            --color-button-hover-bg: #555555; /* Lighter dark grey for button hover */
+            --color-button-active-bg: #333333; /* Darker dark grey for button active */
+            --color-focus-ring: rgba(97, 218, 251, 0.4); /* Accent color with transparency for focus outline */
+            --color-sale-badge-bg: var(--color-accent); /* Use accent color for sale badge */
+            --color-sale-badge-text: #1A1A1A; /* Dark text on accent badge */
         }
 
         /* Universal Box-Sizing */
@@ -58,10 +59,10 @@
             gap: 12px;
             border-radius: 8px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Adjusted shadow for crispness */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Adjusted shadow for dark mode */
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--color-border-light); /* Added subtle border */
+            border: 1px solid var(--color-border-light);
         }
 
         /* Header Subtle Background Effect - Removed for crispness */
@@ -75,7 +76,7 @@
             font-size: 0.85rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--color-text-secondary); /* Muted grey for enterprise feel */
+            color: var(--color-text-secondary);
             font-weight: 500;
         }
 
@@ -87,7 +88,7 @@
             letter-spacing: 0.02em;
             font-weight: 700;
             color: var(--color-text-primary);
-            text-shadow: none; /* Removed subtle text shadow */
+            text-shadow: none;
         }
 
         /* Tagline Text */
@@ -115,16 +116,16 @@
             align-content: start;
             border-radius: 8px;
             border: 1px solid var(--color-border-light);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Subtle initial shadow */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Subtle initial shadow for dark mode */
             transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
             position: relative;
         }
 
         /* Product Card Hover Effect */
         .product-card:hover {
-            transform: translateY(-5px); /* Slightly less lift for enterprise */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger but still clean shadow on hover */
-            border-color: var(--color-accent); /* Black border on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover for dark mode */
+            border-color: var(--color-accent); /* Accent border on hover */
         }
 
         /* Product Card Heading */
@@ -157,7 +158,7 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 1.8rem;
             font-weight: 600;
-            color: var(--color-accent); /* Black for price */
+            color: var(--color-accent); /* Accent color for price */
         }
 
         /* Styles for original price in a discount scenario */
@@ -173,7 +174,7 @@
         .price .discounted-price {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 2rem;
-            color: var(--color-accent); /* Black for discounted price */
+            color: var(--color-accent); /* Accent color for discounted price */
             font-weight: 700;
         }
 
@@ -182,8 +183,8 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: var(--color-sale-badge-bg); /* Dark background */
-            color: var(--color-sale-badge-text); /* White text */
+            background-color: var(--color-sale-badge-bg);
+            color: var(--color-sale-badge-text);
             padding: 6px 12px;
             border-radius: 4px;
             font-family: 'IBM Plex Mono', monospace;
@@ -191,7 +192,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 10;
         }
 
@@ -199,9 +200,9 @@
         button {
             margin-top: 15px;
             width: 100%;
-            border: 2px solid var(--color-button-bg); /* Dark border */
-            background-color: var(--color-button-bg); /* Solid dark background */
-            color: var(--color-button-text); /* White text */
+            border: 2px solid var(--color-button-bg);
+            background-color: var(--color-button-bg);
+            color: var(--color-button-text);
             padding: 14px 18px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.95rem;
@@ -216,22 +217,22 @@
 
         /* Button Hover Effect */
         button:hover {
-            background-color: var(--color-button-hover-bg); /* Slightly lighter dark grey */
-            color: var(--color-button-text); /* Keep white text */
-            border-color: var(--color-button-hover-bg); /* Match border to background */
+            background-color: var(--color-button-hover-bg);
+            color: var(--color-button-text);
+            border-color: var(--color-button-hover-bg);
             transform: translateY(-2px);
         }
 
         /* Button Active (Click) Effect */
         button:active {
             transform: translateY(0);
-            background-color: var(--color-button-active-bg); /* Pure black */
+            background-color: var(--color-button-active-bg);
             border-color: var(--color-button-active-bg);
         }
 
         /* Button Focus for Accessibility */
         button:focus-visible {
-            box-shadow: 0 0 0 3px var(--color-focus-ring), 0 0 0 6px var(--color-text-secondary); /* Dark grey rings */
+            box-shadow: 0 0 0 3px var(--color-focus-ring), 0 0 0 6px var(--color-accent);
         }
 
         /* --- Responsive Design --- */
